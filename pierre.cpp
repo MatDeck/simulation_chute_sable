@@ -13,6 +13,6 @@ char Pierre::getType()  {
     return 'P'; 
 }
 
-void Pierre::miseAJour(Cellule* voisins[3][3]) {
+void Pierre::miseAJour(Cellule* voisins[3][3], Grille& grille) {
     
 }

@@ -14,5 +14,6 @@ class Grille {
         ~Grille();
         Cellule* getCellule(int x, int y) const;
         void setCellule(int x, int y, Cellule* cellule);
+        std::pair<int, int> getPosition(Cellule* cellule) const;
         void miseAJour();
 };

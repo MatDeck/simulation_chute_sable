@@ -34,9 +34,20 @@ void Grille::setCellule(int x, int y, Cellule* cellule) {
     }
 }
 
+std::pair<int, int> Grille::getPosition(Cellule* cellule) const {
+    for (int x = 0; x < longueur; ++x) {
+        for (int y = 0; y < largeur; ++y) {
+            if (grille[x][y] == cellule) {
+                return { x, y };
+            }
+        }
+    }
+    return { -1, -1 }; 
+}
+
 void Grille::miseAJour() {
-    for (int y = largeur - 1; y >= 0; --y) {  
-        for (int x = 0; x < longueur; ++x) { 
+    for (int y = largeur - 1; y >= 0; --y) {
+        for (int x = 0; x < longueur; ++x) {
             if (grille[x][y]) {
                 Cellule* voisins[3][3] = { nullptr };
                 for (int dx = -1; dx <= 1; ++dx) {
@@ -44,7 +55,7 @@ void Grille::miseAJour() {
                         voisins[dx + 1][dy + 1] = getCellule(x + dx, y + dy);
                     }
                 }
-                grille[x][y]->miseAJour(voisins);
+                grille[x][y]->miseAJour(voisins, *this);
             }
         }
     }

@@ -9,6 +9,6 @@ char Cellule::getType() {
     return 'V'; 
 }
 
-void Cellule::miseAJour(Cellule* voisins[3][3]) {
+void Cellule::miseAJour(Cellule* voisins[3][3], Grille& grille) {
 
 }

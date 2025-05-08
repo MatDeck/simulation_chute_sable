@@ -8,5 +8,5 @@ class Pierre : public Cellule {
         Pierre(int x, int y);
         ~Pierre();
         char getType()  override;
-        void miseAJour(Cellule* voisins[3][3]) override;
+        void miseAJour(Cellule* voisins[3][3], Grille& grille) override;
 };

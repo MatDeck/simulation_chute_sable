@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iostream>
+#include "grille.h"
 
 
 class Cellule {
@@ -12,5 +13,5 @@ class Cellule {
         Cellule(int x, int y);
          ~Cellule();
         virtual char getType();
-        virtual void miseAJour(Cellule* voisins[3][3]);
+        virtual void miseAJour(Cellule* voisins[3][3], Grille& grille);
 };
