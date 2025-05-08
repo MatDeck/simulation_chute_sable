@@ -1,5 +1,6 @@
 #pragma once
 #include "pierre.h"
+#include "grille.h"
 
 Pierre::Pierre(int x, int y) : Cellule(x, y) {
     estVide = false;

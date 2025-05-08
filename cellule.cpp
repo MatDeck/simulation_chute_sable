@@ -1,6 +1,7 @@
 #pragma once
 #include "cellule.h"
 
+
 Cellule::Cellule(int x, int y) : x(x), y(y), estVide(true) {}
 
 Cellule::~Cellule() {}

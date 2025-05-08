@@ -1,8 +1,8 @@
 #pragma once
 
 #include <iostream>
-#include "grille.h"
 
+class Grille;
 
 class Cellule {
     protected:

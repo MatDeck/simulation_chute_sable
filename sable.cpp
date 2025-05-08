@@ -1,5 +1,6 @@
 #pragma once
 #include "sable.h"
+#include "grille.h"
 
 Sable::Sable(int x, int y) : Cellule(x, y) {
     estVide = false; 
