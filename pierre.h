@@ -4,7 +4,9 @@
 #include "cellule.h"
 
 class Pierre : public Cellule {
-    private:
-
     public:
+        Pierre(int x, int y);
+        ~Pierre();
+        char getType() const override;
+        void miseAJour(Cellule* voisins[3][3]) override;
 };
