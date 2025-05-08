@@ -12,5 +12,5 @@ class Cellule {
         Cellule(int x, int y);
          ~Cellule();
         virtual char getType() const;
-        virtual void miseAJour(Cellule* voisins[3][3]) = 0;
+        virtual void miseAJour(Cellule* voisins[3][3]);
 };
