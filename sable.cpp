@@ -22,12 +22,12 @@ void Sable::miseAJour(Cellule* voisins[3][3], Grille& grille) {
         grille.changeCellule(x, y, this);
         return;
     }
-    if (voisins[2][2] && voisins[2][2]->getType() == 'V') {
-        grille.changeCellule(x + 1, y, this);
+     else if (voisins[2][2] && voisins[2][2]->getType() == 'V') {
+        grille.changeCelluleDiagD(x , y, this);
         return;
     }
-    if (voisins[0][2] && voisins[0][2]->getType() == 'V') {
-        grille.changeCellule(x - 1, y, this);
+    else if (voisins[0][2] && voisins[0][2]->getType() == 'V') {
+        grille.changeCelluleDiagG(x , y, this);
         return;
     }
 }
