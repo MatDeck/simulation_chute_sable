@@ -34,6 +34,16 @@ void Grille::setCellule(int x, int y, Cellule* cellule) {
     }
 }
 
+void Grille::changeCellule(int x, int y, Cellule* cellule) {
+    if (x >= 0 && x < longueur && y >= 0 && y < largeur) {
+        if (y < (largeur - 1)) {
+            Cellule* temp = grille[x][y + 1];
+            grille[x][y + 1] = grille[x][y];
+            grille[x][y] = temp;
+        }
+    }
+}
+
 std::pair<int, int> Grille::getPosition(Cellule* cellule) const {
     for (int x = 0; x < longueur; ++x) {
         for (int y = 0; y < largeur; ++y) {

@@ -10,7 +10,7 @@ Simulation::Simulation(int gridWidth, int gridHeight, int cellSize)
     cellSize(cellSize),
     grille(gridWidth, gridHeight),
     window(sf::VideoMode(gridWidth* cellSize, gridHeight* cellSize), "Simulation de chute de sable"),
-    materiauSelectionne('S') 
+    materiauSelectionne('P') 
 {
 }
 
@@ -51,7 +51,7 @@ void Simulation::processEvents() {
                     grille.setCellule(x, y, new Pierre(x, y));
                 }
                 else if (materiauSelectionne == 'V') {
-                    grille.setCellule(x, y, nullptr); 
+                    grille.setCellule(x, y, new Cellule(x, y));
                 }
             }
         }
@@ -69,7 +69,10 @@ void Simulation::render() {
             Cellule* cellule = grille.getCellule(x, y);
             sf::RectangleShape rectangle(sf::Vector2f(cellSize, cellSize));
             rectangle.setPosition(x * cellSize, y * cellSize);
-            if (cellule->getType() == 'V') {
+            if (cellule == nullptr) {
+                rectangle.setFillColor(sf::Color::Transparent);
+            } 
+            else if (cellule->getType() == 'V') {
                 rectangle.setFillColor(sf::Color::Black);
             }
             else if (cellule->getType() == 'S') {

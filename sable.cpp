@@ -19,18 +19,15 @@ void Sable::miseAJour(Cellule* voisins[3][3], Grille& grille) {
     int x = position.first;
     int y = position.second;
     if (voisins[1][2] && voisins[1][2]->getType() == 'V') {
-        grille.setCellule(x, y + 1, this);
-        grille.setCellule(x, y, new Cellule(x, y));
+        grille.changeCellule(x, y, this);
         return;
     }
     if (voisins[2][2] && voisins[2][2]->getType() == 'V') {
-        grille.setCellule(x + 1, y + 1, this);
-        grille.setCellule(x, y, new Cellule(x, y));
+        grille.changeCellule(x + 1, y, this);
         return;
     }
     if (voisins[0][2] && voisins[0][2]->getType() == 'V') {
-        grille.setCellule(x - 1, y + 1, this);
-        grille.setCellule(x, y, new Cellule(x, y));
+        grille.changeCellule(x - 1, y, this);
         return;
     }
 }
