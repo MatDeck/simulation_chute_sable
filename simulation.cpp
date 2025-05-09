@@ -30,29 +30,30 @@ void Simulation::processEvents() {
         }
         if (event.type == sf::Event::KeyPressed) {
             if (event.key.code == sf::Keyboard::S) {
-                materiauSelectionne = 'S'; 
+                materiauSelectionne = 'S';
             }
             else if (event.key.code == sf::Keyboard::P) {
-                materiauSelectionne = 'P'; 
+                materiauSelectionne = 'P';
             }
             else if (event.key.code == sf::Keyboard::V) {
-                materiauSelectionne = 'V'; 
+                materiauSelectionne = 'V';
             }
         }
-        if (event.type == sf::Event::MouseButtonPressed) {
-            int x = event.mouseButton.x / cellSize;
-            int y = event.mouseButton.y / cellSize;
+    }
+    if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+        sf::Vector2i sourisPixel = sf::Mouse::getPosition(window);
+        int x = sourisPixel.x / cellSize;
+        int y = sourisPixel.y / cellSize;
 
-            if (x >= 0 && x < gridWidth && y >= 0 && y < gridHeight) {
-                if (materiauSelectionne == 'S') {
-                    grille.setCellule(x, y, new Sable(x, y));
-                }
-                else if (materiauSelectionne == 'P') {
-                    grille.setCellule(x, y, new Pierre(x, y));
-                }
-                else if (materiauSelectionne == 'V') {
-                    grille.setCellule(x, y, new Cellule(x, y));
-                }
+        if (x >= 0 && x < gridWidth && y >= 0 && y < gridHeight) {
+            if (materiauSelectionne == 'S') {
+                grille.setCellule(x, y, new Sable(x, y));
+            }
+            else if (materiauSelectionne == 'P') {
+                grille.setCellule(x, y, new Pierre(x, y));
+            }
+            else if (materiauSelectionne == 'V') {
+                grille.setCellule(x, y, new Cellule(x, y));
             }
         }
     }
