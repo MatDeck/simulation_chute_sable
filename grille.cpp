@@ -64,6 +64,26 @@ void Grille::changeCelluleDiagG(int x, int y, Cellule* cellule) {
     }
 }
 
+void Grille::changeCelluleD(int x, int y, Cellule* cellule) {
+    if (x >= 0 && x < longueur && y >= 0 && y < largeur) {
+        if (y < (largeur - 1)) {
+            Cellule* temp = grille[x + 1][y];
+            grille[x + 1][y] = grille[x][y];
+            grille[x][y] = temp;
+        }
+    }
+}
+
+void Grille::changeCelluleG(int x, int y, Cellule* cellule) {
+    if (x >= 0 && x < longueur && y >= 0 && y < largeur) {
+        if (y < (largeur - 1)) {
+            Cellule* temp = grille[x - 1][y];
+            grille[x - 1][y] = grille[x][y];
+            grille[x][y] = temp;
+        }
+    }
+}
+
 std::pair<int, int> Grille::getPosition(Cellule* cellule) const {
     for (int x = 0; x < longueur; ++x) {
         for (int y = 0; y < largeur; ++y) {

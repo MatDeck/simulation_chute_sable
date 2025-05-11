@@ -2,6 +2,8 @@
 #include "simulation.h"
 #include "sable.h"
 #include "pierre.h"
+#include "acier.h"
+#include "acide.h"
 #include <iostream>
 
 Simulation::Simulation(int gridWidth, int gridHeight, int cellSize)
@@ -38,6 +40,12 @@ void Simulation::processEvents() {
             else if (event.key.code == sf::Keyboard::V) {
                 materiauSelectionne = 'V';
             }
+            else if (event.key.code == sf::Keyboard::A) {
+                materiauSelectionne = 'A';
+            }
+            else if (event.key.code == sf::Keyboard::C) {
+                materiauSelectionne = 'C';
+            }
         }
     }
     if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
@@ -54,6 +62,12 @@ void Simulation::processEvents() {
             }
             else if (materiauSelectionne == 'V') {
                 grille.setCellule(x, y, new Cellule(x, y));
+            }
+            else if (materiauSelectionne == 'A') {
+                grille.setCellule(x, y, new Acier(x, y));
+            }
+            else if (materiauSelectionne == 'C') {
+                grille.setCellule(x, y, new Acide(x, y));
             }
         }
     }
@@ -81,6 +95,12 @@ void Simulation::render() {
             }
             else if (cellule->getType() == 'P') {
                 rectangle.setFillColor(sf::Color::White); 
+            }
+            else if (cellule->getType() == 'A') {
+                rectangle.setFillColor(sf::Color(128, 128, 128));
+            }
+            else if (cellule->getType() == 'C') {
+                rectangle.setFillColor(sf::Color::Green);
             }
             window.draw(rectangle);
         }
