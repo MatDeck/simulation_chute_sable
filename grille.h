@@ -17,6 +17,8 @@ class Grille {
         void changeCellule(int x, int y, Cellule* cellule);
         void changeCelluleDiagD(int x, int y, Cellule* cellule);
         void changeCelluleDiagG(int x, int y, Cellule* cellule);
+        void changeCelluleD(int x, int y, Cellule* cellule);
+        void changeCelluleG(int x, int y, Cellule* cellule);
         std::pair<int, int> getPosition(Cellule* cellule) const;
         void miseAJour();
 };
